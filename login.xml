@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/loginbackground"
+    android:id="@+id/login"
+    android:backgroundTint="#fffff2fe"
+    android:backgroundTintMode="multiply"
+    android:baselineAligned="false">
+    <RelativeLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp">
+        <TextView
+            android:id="@+id/l_user_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5dp"
+            android:text="@string/username"
+            style="@style/normalText"
+           />
+        <EditText
+            android:id="@+id/l_username_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/l_user_input"
+            android:hint="请输入账号"
+            style="@style/inputText"
+            />
+        <TextView
+            android:id="@+id/l_password_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/l_username_edit"
+            android:layout_marginTop="3dp"
+            android:text="@string/password"
+            style="@style/normalText"/>
+        <EditText
+            android:id="@+id/l_password_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/l_password_input"
+            android:singleLine="true"
+            android:inputType="textPassword"
+            android:hint="请输入密码"
+            style="@style/inputText"
+            />
+        <Button
+            android:layout_marginTop="20dp"
+            android:id="@+id/l_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/l_password_edit"
+            android:layout_centerHorizontal="true"
+            android:text="@string/login"
+            android:textSize="22dp"
+            android:background="@drawable/shape"
+            android:textColor="#ffffffff"
+            android:clickable="true"
+            android:onClick="login"
+            android:enabled="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/l_register"
+            android:text="@string/register"
+            android:layout_below="@id/l_button"
+            android:onClick="gotoRegister"
+            style="@style/normalText"
+            android:clickable="true"
+            android:enabled="true" />
+    </RelativeLayout>
+</RelativeLayout>
