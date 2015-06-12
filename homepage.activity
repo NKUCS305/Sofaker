@@ -1,0 +1,153 @@
+package com.example.administrator.sofaker;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.ImageButton;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class MyActivity extends FragmentActivity{
+    private ViewPager mViewPager;
+    private FragmentPagerAdapter mAdapter;
+    private List<Fragment> mFragments = new ArrayList<Fragment>();
+    MainTab01 tab01;
+    MainTab02 tab02;
+    MainTab03 tab03;
+    MainTab04 tab04;
+
+    private ImageButton TabWorld;
+    private ImageButton TabMessage;
+    private ImageButton TabFriend;
+    private ImageButton TabFootPrint;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_my);
+        mViewPager = (ViewPager) findViewById(R.id.id_viewpager);
+        initView();
+        mAdapter = new FragmentPagerAdapter(getSupportFragmentManager())
+        {
+            @Override
+            public int getCount()
+            {
+                return mFragments.size();
+            }
+            @Override
+            public Fragment getItem(int arg0)
+            {
+                return mFragments.get(arg0);
+            }
+        };
+        mViewPager.setAdapter(mAdapter);
+        View.OnClickListener onClickListener=new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetTabBtn();
+                if(v==TabWorld){
+                    TabWorld.setImageResource(R.drawable.bt_pressed1);
+                    mViewPager.setCurrentItem(0);
+                }
+                if(v==TabMessage){
+                    TabMessage.setImageResource(R.drawable.bt_pressed2);
+                    mViewPager.setCurrentItem(1);
+                }
+                if(v==TabFriend){
+                    TabFriend.setImageResource(R.drawable.bt_pressed3);
+                    mViewPager.setCurrentItem(2);
+                }
+                if(v==TabFootPrint){
+                    TabFootPrint.setImageResource(R.drawable.bt_pressed4);
+                    mViewPager.setCurrentItem(3);
+                }
+            }
+        };
+        TabWorld.setOnClickListener(onClickListener);
+        TabFootPrint.setOnClickListener(onClickListener);
+        TabFriend.setOnClickListener(onClickListener);
+        TabMessage.setOnClickListener(onClickListener);
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener()
+        {
+            private int currentIndex;
+            @Override
+            public void onPageSelected(int position)
+            {
+                resetTabBtn();
+                switch (position)
+                {
+                    case 0:
+                        TabWorld.setImageResource(R.drawable.bt_pressed1);
+                        break;
+                    case 1:
+                        TabMessage.setImageResource(R.drawable.bt_pressed2);
+                        break;
+                    case 2:
+                        TabFriend.setImageResource(R.drawable.bt_pressed3);
+                        break;
+                    case 3:
+                        TabFootPrint.setImageResource(R.drawable.bt_pressed4);
+                        break;
+                }
+                currentIndex = position;
+            }
+
+            @Override
+            public void onPageScrolled(int arg0, float arg1, int arg2)
+            {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int arg0)
+            {
+            }
+        });
+        mViewPager.setCurrentItem(0);
+        TabWorld.setImageResource(R.drawable.bt_pressed1);
+    }
+
+    protected void resetTabBtn()
+    {
+        TabWorld.setImageResource(R.drawable.button_1);
+        TabMessage.setImageResource(R.drawable.button_2);
+        TabFriend.setImageResource(R.drawable.button_3);
+        TabFootPrint.setImageResource(R.drawable.button_4);
+    }
+
+    private void initView()
+    {
+        TabWorld = (ImageButton) findViewById(R.id.main_world);
+        TabMessage = (ImageButton) findViewById(R.id.main_message);
+        TabFriend = (ImageButton) findViewById(R.id.main_friend);
+        TabFootPrint = (ImageButton) findViewById(R.id.main_footprint);
+        if(tab01==null) {
+            tab01 = new MainTab01();
+        }
+        if(tab02==null) {
+            tab02 = new MainTab02();
+        }
+        if(tab03==null){
+            tab03 = new MainTab03();
+        }
+        if(tab04==null){
+            tab04 = new MainTab04();
+        }
+        mFragments.add(tab01);
+        mFragments.add(tab02);
+        mFragments.add(tab03);
+        mFragments.add(tab04);
+    }
+    public void infoEdit(View view){
+        Intent intent=new Intent(MyActivity.this,InfoActivity.class);
+        startActivity(intent);
+    }
+}
