@@ -1,0 +1,74 @@
+package com.nkcs.softer.po;
+
+import java.io.Serializable;
+import java.util.Date;
+import com.nkcs.softer.po.user;
+
+@SuppressWarnings("serial")
+public class message implements Serializable
+{	private String mid;
+	private String date;
+	private String sexneed;
+	private String room;
+	private String state;
+	private String uid;
+	
+public String getmid() {
+	return mid;
+}
+public void setmid(String mid) {
+	this.mid = mid;
+}
+public String getdate() {
+	return date;
+}
+public void setdate(String date) {
+	this.date = date;
+}
+public String getsexneed() {
+	return sexneed;
+}
+public void setsexneed(String sexneed) {
+	this.sexneed = sexneed;
+}
+public String getroom() {
+	return room;
+}
+public void setroom(String room) {
+	this.room = room;
+}
+public String getstate() {
+	return state;
+}
+public void setstate(String state) {
+	this.state = state;
+}
+
+public String getUid() {
+	return uid;
+}
+public void setUid(String uid) {
+	this.uid = uid;
+}
+	public message(String mid, String date, String sexneed,
+		String room, String state,
+		String uid) {
+	super();
+	this.name = name;
+	this.mid = mid;
+	this.date = date;
+	this.sexneed = sexneed;
+	this.room = room;
+	this.state = state;
+	this.uid = uid;
+}
+	
+	@Override
+	public String toString() {
+		return "message [uid=" + uid + ", name=" + name + ", mid=" + mid
+				+ ", date=" + date + ", sexneed=" + sexneed + ", room=" + room
+				+ ", state=" + state + "]";
+	}
+	
+	
+}
