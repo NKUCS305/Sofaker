@@ -1,0 +1,103 @@
+package com.nkcs.softer.po;
+
+import java.io.Serializable;
+import java.util.Date;
+
+@SuppressWarnings("serial")
+public class user implements Serializable
+{	private String password;
+	private String idunm;
+	private String add1;
+	private String add2;
+	private String phone;
+	private int age;
+	private String email;
+	private boolean sex;
+	private String uid;
+	private String name;
+	public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public String getPassword() {
+	return password;
+}
+public void setPassword(String password) {
+	this.password = password;
+}
+public String getIdunm() {
+	return idunm;
+}
+public void setIdunm(String idunm) {
+	this.idunm = idunm;
+}
+public String getAdd1() {
+	return add1;
+}
+public void setAdd1(String add1) {
+	this.add1 = add1;
+}
+public String getAdd2() {
+	return add2;
+}
+public void setAdd2(String add2) {
+	this.add2 = add2;
+}
+public String getPhone() {
+	return phone;
+}
+public void setPhone(String phone) {
+	this.phone = phone;
+}
+public int getAge() {
+	return age;
+}
+public void setAge(int age) {
+	this.age = age;
+}
+public String getEmail() {
+	return email;
+}
+public void setEmail(String email) {
+	this.email = email;
+}
+public boolean isSex() {
+	return sex;
+}
+public void setSex(boolean sex) {
+	this.sex = sex;
+}
+public String getUid() {
+	return uid;
+}
+public void setUid(String uid) {
+	this.uid = uid;
+}
+	public user(String name, String password, String idunm, String add1,
+		String add2, String phone, int age, String email, boolean sex,
+		String uid) {
+	super();
+	this.name = name;
+	this.password = password;
+	this.idunm = idunm;
+	this.add1 = add1;
+	this.add2 = add2;
+	this.phone = phone;
+	this.age = age;
+	this.email = email;
+	this.sex = sex;
+	this.uid = uid;
+}
+	
+	@Override
+	public String toString() {
+		return "user [uid=" + uid + ", name=" + name + ", password=" + password
+				+ ", idunm=" + idunm + ", add1=" + add1 + ", add2=" + add2
+				+ ", phone=" + phone + ", age=" + age + ", email=" + email
+				+ ", sex=" + sex + "]";
+	}
+	
+	
+}
